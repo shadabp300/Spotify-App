@@ -1,0 +1,42 @@
+.add_artist_container{
+    margin-top: 15vh;
+    width: 100vw;
+    height: 85vh;
+    background-image: url(https://i.pinimg.com/736x/e3/ce/7e/e3ce7e4269901daf19729642f8cbdbf5.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add_artist_container_1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+    height: 70vh;
+    background:linear-gradient(90deg, rgba(125,27,191,1) 0%, rgba(190,59,161,1) 50%, rgba(252,176,69,1) 100%);;
+    flex-direction: column;
+}
+.add_artist_input{
+    background-color: lightpink;
+    padding: 1.5vh 2vw;
+    margin: 2vh 0;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.add_artist_submit{
+
+    background-color: rgb(37, 29, 29);
+    color: aliceblue;
+    border-radius: 15px;
+    padding: 1vh 2vh;
+    font-weight: bold;
+}
+
+.add_artist_submit:hover{
+    background-color: aliceblue;
+    color:  rgb(37, 29, 29);
+}
