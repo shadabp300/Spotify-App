@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import FileBase64 from 'react-file-base64'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, NavLink } from 'react-router-dom'
 import Navbar from '../Navbar/Navbar'
 import './Addsong.css'
 
@@ -15,8 +15,6 @@ const Add_song = () => {
         artwork:'',
         artist:''
     })
-
-
 
 
 
@@ -39,22 +37,27 @@ const Add_song = () => {
             <Navbar/>
     <div className='add_artist_container'>
         <div className='add_artist_container_1'>
-            <h2 className='song_heading'>Song Name</h2>
+            <h4 className='song_heading'>Song Name</h4>
             <input className='add_artist_input' type="text" 
             onChange={(e)=>setdata({...data,song_name:e.target.value})}/>
 
-            <h2>Date Of Released</h2>
-            <input className='add_artist_input' type="date"
+            <h4>Date Of Released</h4>
+            <input className='add_artist_input date' type="date"
             onChange={(e)=>setdata({...data,date:e.target.value})}/>
 
-            <h2>Artwork</h2>
-            <input type="file" title=' ' onChange={(e) => { handleFile(e) }} />
+            <h4>Artwork</h4>
+            <FileBase64  type="file" multiple={ false } onDone={({base64})=> {
+            setdata({...data,artwork:base64})
+            }}/>
 
-            <h2>Artists</h2>
+            <h4>Artists</h4>
             <input className='add_artist_input' type="text"
             onChange={(e)=>setdata({...data,artist:e.target.value})}/>
-            
+            <div>
+            <NavLink to='/song'><button className='add_artist_cancel' >cancel</button></NavLink>
             <button className='song_button add_artist_submit' onClick={submit_artist}>Done</button>
+            </div>
+            
         </div>
 
         

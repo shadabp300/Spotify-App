@@ -50,7 +50,7 @@ const Song = () => {
                         {data.map((val,i)=> {
                             return (
                                 <tr className='song_body'>
-                                    <td className='song_row_data'>{val.artwork}</td>
+                                    <td className='song_row_data'><img className='song_image' src={val.artwork} alt=""/></td>
                                     <td className='song_row_data'>{val.song_name}</td>
                                     <td className='song_row_data'>{val.date}</td>
                                     <td className='song_row_data'>{val.artist}</td>

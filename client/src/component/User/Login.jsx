@@ -29,7 +29,7 @@ const Login = () => {
       data:data
   }).then((token)=> {
       localStorage.setItem("authorization",token.data)
-      navigate("/artist")
+      navigate("/song")
   }).catch((err)=> {
       console.log(err)
       window.alert(err.response.data)

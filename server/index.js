@@ -2,17 +2,19 @@ const express=require('express')
 const mongoose=require('mongoose')
 const cors=require('cors')
 
+const app=express()
+const port=process.env.PORT || 8080
+app.use(cors())
 // Routes
 const Userroute=require('./Routers/user')
 const Artistroute=require('./Routers/artist')
 const Songroute=require('./Routers/song')
 
-const app=express()
-const port=process.env.PORT || 8080
+
 
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
-app.use(cors())
+
 
 mongoose.connect('mongodb://localhost:27017/spotify').then(()=> {
     console.log("Database Connected")

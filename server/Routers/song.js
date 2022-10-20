@@ -20,7 +20,7 @@ router.post('/addsong', (req,res)=> {
 })
 
 router.get("/song", (req,res)=> {
-    songModel.find().limit(10).then((data)=> {
+    songModel.find().then((data)=> {
         let result=data.reverse()
         res.status(200).send(result)
     }).catch((err)=> {

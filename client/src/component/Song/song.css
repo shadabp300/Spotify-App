@@ -53,3 +53,8 @@
     font-weight: bolder;
     color: rgb(214, 94, 94);
 }
+
+.song_image{
+    width: 10vw;
+    height: 6vw;
+}

@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, NavLink } from 'react-router-dom'
 import Navbar from '../Navbar/Navbar'
 import './Add_artist.css'
 
@@ -32,15 +32,19 @@ const Add_artist = () => {
             <Navbar/>
     <div className='add_artist_container'>
         <div className='add_artist_container_1'>
-            <h2>Artist Name</h2>
+            <h4>Artist Name</h4>
             <input className='add_artist_input' type="text" 
             onChange={(e)=>setdata({...data,artist_name:e.target.value})}/>
-            <h2>Date Of Birth</h2>
+            <h4>Date Of Birth</h4>
             <input className='add_artist_input' type="date"
             onChange={(e)=>setdata({...data,birth_date:e.target.value})}/>
-            <h2>Bio</h2>
+            <h4>Bio</h4>
             <textarea className='add_artist_input' onChange={(e)=>setdata({...data,bio:e.target.value})}/>
+            <div>
+            <NavLink to='/artist'><button className='add_artist_cancel' >cancel</button></NavLink>
             <button className='add_artist_submit' onClick={submit_artist}>Done</button>
+            </div>
+            
         </div>
 
         

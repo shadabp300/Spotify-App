@@ -28,6 +28,12 @@
     font-weight: bolder;
 }
 
+input[type="date"]{
+    width: 17vw;
+    height: 7vh;
+
+}
+
 .add_artist_submit{
 
     background-color: rgb(37, 29, 29);
@@ -35,6 +41,8 @@
     border-radius: 15px;
     padding: 1vh 2vh;
     font-weight: bold;
+    margin-bottom: 3vh;
+    margin-left: 3vh;
 }
 
 .add_artist_submit:hover{
