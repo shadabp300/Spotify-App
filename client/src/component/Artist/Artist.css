@@ -11,10 +11,10 @@ body {
 
 .table_container_2{
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
+    min-height: 40rem;
 }
 
 .table_heading_button{

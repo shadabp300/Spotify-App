@@ -7,6 +7,8 @@ import Private from './component/Private_component/Private'
 import Rating from './component/Rating/Rating'
 import Artist from './component/Artist/Artist'
 import Addartist from './component/Artist/Add_artist'
+import Song from './component/Song/Song'
+import Addsong from './component/Song/Addsong'
 
 const App = () => {
   return (
@@ -18,6 +20,8 @@ const App = () => {
       <Route path='/star' element={<Rating/>}/>
       <Route path='/artist' element={<Artist/>}/>
       <Route path='/add_artist' element={<Addartist/>}/>
+      <Route path='/song' element={<Song/>}/>
+      <Route path='/add_song' element={<Addsong/>}/>
       </Route>
     </Routes>
     </BrowserRouter>

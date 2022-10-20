@@ -30,7 +30,7 @@ router.post('/add_artist', (req,res)=> {
 
 router.get('/artist', (req,res)=> {
     Artistmodel.find().then((data)=> {
-        let result=data.reverse()
+        let result=data.reverse().slice(0,10)
         res.status(200).send(result)
     }).catch((err)=> {
         res.status(400).send(err)

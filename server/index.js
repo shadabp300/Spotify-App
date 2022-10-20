@@ -5,6 +5,7 @@ const cors=require('cors')
 // Routes
 const Userroute=require('./Routers/user')
 const Artistroute=require('./Routers/artist')
+const Songroute=require('./Routers/song')
 
 const app=express()
 const port=process.env.PORT || 8080
@@ -30,3 +31,4 @@ app.listen(port,()=> {
 
 app.use('/user', Userroute)
 app.use('/', Artistroute)
+app.use('/',Songroute)
