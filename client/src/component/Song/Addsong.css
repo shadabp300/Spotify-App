@@ -24,6 +24,20 @@ input[type="file"] {
     font-weight: bolder;
 }
 
+.select_artist {
+    background-color: lightpink;
+    width: 17vw;
+    height: 5vh;
+    margin: 2vh 0;
+    padding: 1.2vh 0vw 1.2vh 0vh;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 15px;
+    font-weight: bolder;
+    text-align: center;
+    
+}
+
 .add_artist_cancel {
     background-color: aliceblue;
     color:  rgb(37, 29, 29);

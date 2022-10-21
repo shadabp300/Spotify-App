@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { useEffect } from 'react'
 import FileBase64 from 'react-file-base64'
 import { useNavigate, NavLink } from 'react-router-dom'
 import Navbar from '../Navbar/Navbar'
@@ -15,6 +16,29 @@ const Add_song = () => {
         artwork:'',
         artist:''
     })
+
+
+
+    // Add Artist Array set
+
+    const [artistarr, setartistarr]=useState([])
+
+    const artistarray=()=> {
+        axios({
+            method:"Get",
+            url:"http://localhost:8080/artist"
+        }).then((data)=> {
+            setartistarr(data.data)
+            console.log(data.data)
+            
+        })
+    }
+
+    useEffect(()=> {
+        artistarray()
+    }, [])
+
+    // ________________________________
 
 
 
@@ -51,8 +75,20 @@ const Add_song = () => {
             }}/>
 
             <h4>Artists</h4>
-            <input className='add_artist_input' type="text"
-            onChange={(e)=>setdata({...data,artist:e.target.value})}/>
+
+
+            <select className='select_artist' name='artist' id='artist' value={data.artist} onChange={(e)=>setdata({...data,artist:e.target.value})}>
+                        {artistarr.slice(2).map((value) => {
+                            return (
+                                <option value={value.artist_name}>{value.artist_name}</option>
+                            )
+                        })}
+            </select >
+
+
+
+            {/* <input className='add_artist_input' type="text"
+            onChange={(e)=>setdata({...data,artist:e.target.value})}/> */}
             <div>
             <NavLink to='/song'><button className='add_artist_cancel' >cancel</button></NavLink>
             <button className='song_button add_artist_submit' onClick={submit_artist}>Done</button>

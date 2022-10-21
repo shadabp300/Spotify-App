@@ -16,7 +16,7 @@ const Login = () => {
   useEffect(()=> {
     let token=localStorage.getItem("authorization")
     if(token){
-      navigate("/artist")
+      navigate("/song")
     }
   })
 
