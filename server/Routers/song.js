@@ -11,11 +11,25 @@ router.post('/addsong', (req,res)=> {
         return res.status(400).send("Please fill the required fields")
     }
     else {
-        songModel.create({song_name, date, artwork, artist}).then(()=> {
-            return res.status(200).send("Song Added Successfully")
-        }).catch((err)=> {
-            return res.status(400).send({err})
+        songModel.findOne({song_name}).then((check)=> {
+
+            if (check){
+                songModel.updateOne({song_name}, {$set : {artist:(check.artist).concat(artist)}}).then(()=> {
+                    return res.status(200).send("Song Added Successfully")
+                }).catch((err)=> {
+                    return res.status(400).send({err})
+                })
+            }
+            
+            else {
+                songModel.create({song_name, date, artwork, artist}).then(()=> {
+                    return res.status(200).send("Song Added Successfully")
+                }).catch((err)=> {
+                    return res.status(400).send({err})
+                })
+            }
         })
+       
     }
 })
 

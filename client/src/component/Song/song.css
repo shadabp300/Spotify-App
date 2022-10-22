@@ -27,7 +27,7 @@
     display: inline-block;
 }  */
 .song_table_data{
-    margin-top: 5vh;
+    margin: 5vh 3vw 0 3vw;
 }
 .song_head{
     border: 2px solid black;

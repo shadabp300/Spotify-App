@@ -3,7 +3,7 @@ const mongoose=require('mongoose')
 const artistSchema=new mongoose.Schema({
     artist_name:String,
     birth_date:String,
-    bio:String
+    song:[]
 })
 
 const artistmodel= mongoose.model("artist", artistSchema)

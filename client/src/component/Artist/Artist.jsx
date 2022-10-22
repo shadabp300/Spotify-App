@@ -16,8 +16,7 @@ const Artist = () => {
             url:"http://localhost:8080/artist"
         }).then((data)=> {
             setdata(data.data)
-            console.log(data.data)
-            
+            // console.log(data.data)
         })
     }
 
@@ -47,11 +46,18 @@ const Artist = () => {
 
                     {
                         data.map((val,i)=> {
+                            console.log()
                             return (
                                 <div className='table_row'>
                                 <span className='table_head_2'>{val.artist_name}</span>
                                 <span className='table_head_2'>{val.birth_date}</span>
-                                <span className='table_head_2'>{val.bio}</span>
+                                <span className='table_head_2'>
+                                {(val.song).map((show, i)=> {
+                                    return(
+                                        <span >{show},     </span>
+                                    )
+                                })}
+                                </span>
                                 </div>
                             )
                         })

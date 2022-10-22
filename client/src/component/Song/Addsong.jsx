@@ -14,7 +14,7 @@ const Add_song = () => {
         song_name:'',
         date:'',
         artwork:'',
-        artist:''
+        artist:[]
     })
 
 
@@ -29,12 +29,13 @@ const Add_song = () => {
             url:"http://localhost:8080/artist"
         }).then((data)=> {
             setartistarr(data.data)
-            console.log(data.data)
-            
         })
     }
 
+    
+
     useEffect(()=> {
+        
         artistarray()
     }, [])
 
@@ -44,13 +45,14 @@ const Add_song = () => {
 
     let submit_artist=(e)=> {
         e.preventDefault()
-        console.log(data)
+        // console.log(data)
         axios({
             method:"POST",
             url:"http://localhost:8080/addsong",
             data:data
         }).then((user)=> {
             window.alert(user.data)
+            // console.log(user)
             navigate('/song')
         }).catch((err)=> {
             window.alert(err.response.data)
@@ -70,15 +72,15 @@ const Add_song = () => {
             onChange={(e)=>setdata({...data,date:e.target.value})}/>
 
             <h4>Artwork</h4>
-            <FileBase64  type="file" multiple={ false } onDone={({base64})=> {
+            <FileBase64  type="file" multiple={ false }  onDone={({base64})=> {
             setdata({...data,artwork:base64})
             }}/>
 
             <h4>Artists</h4>
 
 
-            <select className='select_artist' name='artist' id='artist' value={data.artist} onChange={(e)=>setdata({...data,artist:e.target.value})}>
-                        {artistarr.slice(2).map((value) => {
+            <select className='select_artist'  name='artist' id='artist'  onChange={(e)=>setdata({...data,artist:[e.target.value]})}>
+                        {artistarr.map((value) => {
                             return (
                                 <option value={value.artist_name}>{value.artist_name}</option>
                             )

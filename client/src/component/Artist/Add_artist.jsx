@@ -10,17 +10,18 @@ const Add_artist = () => {
     const [data, setdata]=useState({
         artist_name:"",
         birth_date:"",
-        bio:""
+        bio:[]
     })
 
     let submit_artist=(e)=> {
         e.preventDefault()
-        console.log(data)
+        // console.log(data)
         axios({
             method:"POST",
             url:"http://localhost:8080/add_artist",
             data:data
         }).then((user)=> {
+            // console.log("shadab", user.data)
           window.alert(user.data)
           navigate('/artist')
         }).catch((err)=> {
@@ -39,7 +40,7 @@ const Add_artist = () => {
             <input className='add_artist_input' type="date"
             onChange={(e)=>setdata({...data,birth_date:e.target.value})}/>
             <h4>Bio</h4>
-            <textarea className='add_artist_input' onChange={(e)=>setdata({...data,bio:e.target.value})}/>
+            <textarea className='add_artist_input' onChange={(e)=>setdata({...data,bio:[e.target.value]})}/>
             <div>
             <NavLink to='/artist'><button className='add_artist_cancel' >cancel</button></NavLink>
             <button className='add_artist_submit' onClick={submit_artist}>Done</button>

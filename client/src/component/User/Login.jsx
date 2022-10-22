@@ -31,7 +31,7 @@ const Login = () => {
       localStorage.setItem("authorization",token.data)
       navigate("/song")
   }).catch((err)=> {
-      console.log(err)
+      // console.log(err)
       window.alert(err.response.data)
   })
   }
@@ -63,7 +63,7 @@ const Login = () => {
           </div>
           <div className="d-grid gap-2 mt-3">
             <button type="submit" className="btn btn-primary" onClick={handlesubmit}>
-              Submit
+              SignIn
             </button>
             
           </div>

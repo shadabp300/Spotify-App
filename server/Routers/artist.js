@@ -9,12 +9,22 @@ router.post('/add_artist', (req,res)=> {
         return res.status(400).send("Please provide all Required details")
     }
     else {
+
+        
         Artistmodel.findOne({artist_name}).then((check)=> {
+
             if(check) {
-                return res.status(400).send("Artist is already available in the List")
+                Artistmodel.updateOne({artist_name}, {$set :{song:(check.song).concat(bio)}}).then((data)=> {
+                    // console.log(data)
+                    res.status(200).send("New Artist Added")
+                }).catch((err)=> {
+                    res.status(400).send(err)
+                })
             }
             else {
-                Artistmodel.create(req.body).then(()=> {
+                Artistmodel.create({
+                    artist_name, birth_date, song:[bio]
+                }).then(()=> {
                     res.status(200).send("New Artist Added")
                 }).catch((err)=> {
                     res.status(400).send(err)
