@@ -39,7 +39,7 @@ const Add_artist = () => {
             <h4>Date Of Birth</h4>
             <input className='add_artist_input' type="date"
             onChange={(e)=>setdata({...data,birth_date:e.target.value})}/>
-            <h4>Bio</h4>
+            <h4>Song</h4>
             <textarea className='add_artist_input' onChange={(e)=>setdata({...data,bio:[e.target.value]})}/>
             <div>
             <NavLink to='/artist'><button className='add_artist_cancel' >cancel</button></NavLink>

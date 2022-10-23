@@ -28,7 +28,7 @@ const Add_song = () => {
             method:"Get",
             url:"http://localhost:8080/artist"
         }).then((data)=> {
-            setartistarr(data.data)
+            setartistarr(([...new Set(data.data)]).reverse())
         })
     }
 
@@ -62,6 +62,8 @@ const Add_song = () => {
         <div>
             <Navbar/>
     <div className='add_artist_container'>
+    <NavLink className='add_position' to='/add_artist'><button className='table_heading_add' type="">+ Add Artist</button></NavLink>
+
         <div className='add_artist_container_1'>
             <h4 className='song_heading'>Song Name</h4>
             <input className='add_artist_input' type="text" 
@@ -79,7 +81,7 @@ const Add_song = () => {
             <h4>Artists</h4>
 
 
-            <select className='select_artist'  name='artist' id='artist'  onChange={(e)=>setdata({...data,artist:[e.target.value]})}>
+            <select className='select_artist'   name='artist' id='artist'  onChange={(e)=>setdata({...data,artist:[e.target.value]})}>
                         {artistarr.map((value) => {
                             return (
                                 <option value={value.artist_name}>{value.artist_name}</option>

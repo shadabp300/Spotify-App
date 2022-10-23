@@ -14,8 +14,8 @@ router.post('/addsong', (req,res)=> {
         songModel.findOne({song_name}).then((check)=> {
 
             if (check){
-                songModel.updateOne({song_name}, {$set : {artist:(check.artist).concat(artist)}}).then(()=> {
-                    return res.status(200).send("Song Added Successfully")
+                songModel.updateOne({song_name}, {$set : {artist:(check.artist).concat(artist), date, artwork}}).then(()=> {
+                    return res.status(200).send("Song Added with New Artist Successfully")
                 }).catch((err)=> {
                     return res.status(400).send({err})
                 })

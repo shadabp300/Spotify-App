@@ -16,7 +16,7 @@ router.post('/add_artist', (req,res)=> {
             if(check) {
                 Artistmodel.updateOne({artist_name}, {$set :{song:(check.song).concat(bio)}}).then((data)=> {
                     // console.log(data)
-                    res.status(200).send("New Artist Added")
+                    res.status(200).send("Artist Added with New Song")
                 }).catch((err)=> {
                     res.status(400).send(err)
                 })

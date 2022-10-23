@@ -53,10 +53,18 @@ const Song = () => {
                                     <td className='song_row_data'><img className='song_image' src={val.artwork} alt=""/></td>
                                     <td className='song_row_data'>{val.song_name}</td>
                                     <td className='song_row_data'>{val.date}</td>
-                                    <td className='song_row_data'>{(val.artist).map((art, i)=> {
-                                        return(
-                                            <span className='song_row_data'>{art},  </span>
-                                        )
+                                    <td className='song_row_data'>{([...new Set(val.artist)]).map((art, i)=> {
+                                        if(i===([...new Set(val.artist)].length)-1){
+                                            return(
+                                                <span className='song_row_data'>{art}</span>
+                                            )
+                                        }
+                                        else{
+                                            return(
+                                                <span className='song_row_data'>{art},  </span>
+                                            )
+                                        }
+                                        
                                     })}</td>
                                     <td className='song_row_data'><MyComponent/></td>
                                 </tr>

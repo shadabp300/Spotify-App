@@ -52,10 +52,16 @@ const Artist = () => {
                                 <span className='table_head_2'>{val.artist_name}</span>
                                 <span className='table_head_2'>{val.birth_date}</span>
                                 <span className='table_head_2'>
-                                {(val.song).map((show, i)=> {
+                                {([...new Set(val.song)]).map((show, i)=> {
+                                    if(i===([...new Set(val.song)].length)-1)
                                     return(
-                                        <span >{show},     </span>
+                                        <span >{show}</span>
                                     )
+                                    else {
+                                        return(
+                                            <span >{show},  </span>
+                                        )
+                                    }
                                 })}
                                 </span>
                                 </div>

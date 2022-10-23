@@ -51,3 +51,10 @@ input[type="file"] {
     color: aliceblue;
 
 }
+
+.add_position{
+    position: absolute;
+    top: 70vh;
+    left: 25vw;
+    
+}
