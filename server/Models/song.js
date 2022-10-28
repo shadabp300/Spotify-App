@@ -4,7 +4,14 @@ const songSchema=new mongoose.Schema({
     song_name:String,
     date:String,
     artwork:String,
-    artist:[]
+    artist:[],
+    userarr:{
+        type:Array
+    },
+    rating:{
+        type:Number,
+        default:0
+    }
 })
 
 const songModel=mongoose.model("songs", songSchema)

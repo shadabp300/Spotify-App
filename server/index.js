@@ -9,6 +9,7 @@ app.use(cors())
 const Userroute=require('./Routers/user')
 const Artistroute=require('./Routers/artist')
 const Songroute=require('./Routers/song')
+const Ratingroute=require('./Routers/rating')
 
 
 
@@ -34,3 +35,4 @@ app.listen(port,()=> {
 app.use('/user', Userroute)
 app.use('/', Artistroute)
 app.use('/',Songroute)
+app.use('/',Ratingroute)

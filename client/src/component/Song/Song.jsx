@@ -66,7 +66,7 @@ const Song = () => {
                                         }
                                         
                                     })}</td>
-                                    <td className='song_row_data'><MyComponent/></td>
+                                    <td className='song_row_data'><MyComponent song_name={val.song_name}/></td>
                                 </tr>
                             )
                         })}

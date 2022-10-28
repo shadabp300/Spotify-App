@@ -1,17 +1,36 @@
 import React, { useEffect, useState } from 'react'
 import { Rating } from 'react-simple-star-rating'
+import axios from 'axios'
 
-export default function MyComponent() {
-  const [rating, setRating] = useState(0)
+const MyComponent = (props) => {
+
+  const token=localStorage.getItem("authorization")
+
+  const [rate,setrate]=useState(0)
 
   // Catch Rating value
-  const handleRating = (e) => {
-    setRating(e)
+  const handleRating = async (e) => {
+    setrate(e)
+    let data={
+      song_name:props.song_name,
+      user_email:token, 
+      user_rate:e
+    }
+      
+     axios({
+      method:"POST",
+      url:"http://localhost:8080/rating",
+      data:data
+    }).then((user)=> {
+      window.alert("Rating Added Successfully")
+    }).catch((err)=> {
+      window.alert(err)
+    })
   }
 
   useEffect(()=> {
-    console.log(rating)
-  }, [rating])
+  
+  },[rate])
 
   
 
@@ -23,3 +42,6 @@ export default function MyComponent() {
     </div>
   )
 }
+
+
+export default  MyComponent
