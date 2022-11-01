@@ -17,19 +17,20 @@ const MyComponent = (props) => {
       user_rate:e
     }
       
-     axios({
+    axios({
       method:"POST",
       url:"http://localhost:8080/rating",
       data:data
     }).then((user)=> {
       window.alert("Rating Added Successfully")
+      window.location.reload();
     }).catch((err)=> {
       window.alert(err)
     })
   }
 
   useEffect(()=> {
-  
+ 
   },[rate])
 
   
